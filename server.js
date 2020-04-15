@@ -16,7 +16,7 @@ const server = http.createServer(app);
 const io = socketIo(server);
 
 const PORT = process.env.PORT || 3000;
-const botName = "multiChart app";
+const botName = "ChatBot";
 
 //setting static folder
 app.use(express.static(path.join(__dirname, "web")));
@@ -29,7 +29,7 @@ io.on("connection", (socket) => {
     socket.join(user.room);
 
     //welcome current user
-    socket.emit("message", formatMessage(botName, "welcome to chart"));
+    socket.emit("message", formatMessage(botName, "welcome to the chat"));
 
     //broadcast when user connect
     socket.broadcast
